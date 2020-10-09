@@ -1,0 +1,59 @@
+<!-- <div [formGroup]="form">
+  <label for="password">Password</label>
+  <input formControlName="password" type="password" id="password" />
+  <div *ngIf="passwordControl.touched && passwordControl.hasError('required')" class="error">
+    password is required
+  </div>
+
+  <label for="confirm-password">Confirm Password</label>
+  <input formControlName="confirmPassword" type="password" id="confirm-password" />
+  <div *ngIf="confirmPasswordControl.touched && confirmPasswordControl.hasError('required')" class="error">
+    password is required
+  </div>
+
+  <div *ngIf="passwordControl.touched && confirmPasswordControl.touched && form.hasError('missmatch')" class="error">
+    passwords do not match
+  </div>
+</div> -->
+
+<div [formGroup]="epForm">
+  <div class="form">
+    <div class="form-heading">
+      <div class="form-title">Episode Details
+        <button type="button" (click)="addEpisode()">Add Episode</button>
+      </div>
+    </div>
+    <div class="form-body">
+      <div formArrayName="episodes">      
+        <div *ngFor="let episode of episodes().controls; let i=index">
+          <!-- The repeated ep template -->
+          <div [formGroupName]="i">
+            <input formControlName="chapter" placeholder="Chapter" (input)="onChange($event.target.value)">
+            <input formControlName="epTitle" placeholder="Episode Title" (input)="onChange($event.target.value)">
+          </div>
+          <button (click)="removeEpisode(i)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div formArrayName="items"
+  *ngFor="let item of items.controls; let i = index;">
+  <div [formGroupName]="i">
+    <input formControlName="name" placeholder="Item name">
+    <input formControlName="description" placeholder="Item description">
+    <input formControlName="price" placeholder="Item price">
+  </div>
+
+  Chosen name: {{ epForm.controls.items.controls[i].controls.name.value }}
+</div> -->
+
+   <!-- <mat-form-field>
+        <mat-label>Chapter</mat-label>
+        <input matInput type="text" formControlName="chapter" placeholder="Chapter" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Episode Title</mat-label>
+        <input matInput type="text" formControlName="eptitle" placeholder="Episode Title" required>
+      </mat-form-field> -->

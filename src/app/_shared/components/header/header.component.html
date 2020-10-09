@@ -1,0 +1,71 @@
+<!-- <mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)='toggleSideBar()'><mat-icon>menu</mat-icon></button>
+    <span> LOGO </span>
+    <span class="example-spacer"></span>
+    <div>
+      <ul>
+        <li>
+          <button mat-icon-button><mat-icon>settings</mat-icon></button>
+        </li>
+        <li>
+          <button mat-icon-button><mat-icon>help_outline</mat-icon></button>
+        </li>
+        <li>
+          <button mat-button [matMenuTriggerFor]="menu"><mat-icon>person_outline</mat-icon></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item><mat-icon>exit_to_app</mat-icon>Sign Out</button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+
+
+<mat-toolbar>
+  <button mat-icon-button (click)='toggleSideBar()'>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="logo"><img class="logo" src="../assets/logo/logomvh.png"></span>
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button>
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>share</mat-icon>
+  </button> -->
+  <!-- <p>{{user?.email}}</p> -->
+<mat-slide-toggle [checked] = "checked" (change)="logout()">{{user?.email}}</mat-slide-toggle>
+  <!-- <mat-menu #appMenu="matMenu">
+    <ng-template matMenuContent let-name="name">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Log off {{name}}</button>
+    </ng-template>
+  </mat-menu> -->
+<!-- 
+  <button mat-flat-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Sally'}">{{user?.email}}
+    <mat-icon>expand_more</mat-icon>
+  </button> -->
+
+  
+
+</mat-toolbar>
+
+<!-- <mat-toolbar>
+  <mat-toolbar-row>
+   <span>
+      <img class="logo" src="../assets/eatsmarticon.png">
+   </span>
+  <span>
+   <p class="toolbarname"> L O C A T I O N S</p>
+  </span>
+  <mat-form-field>
+   <input matInput placeholder="Favorite food" value="Sushi">
+ </mat-form-field>
+ <span class="example-spacer"></span>
+ <a routerLink="locations">
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">filter</mat-icon>
+ </a>
+ </mat-toolbar-row>
+ </mat-toolbar> -->

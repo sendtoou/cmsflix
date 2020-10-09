@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/scss/styles.scss"
             ],
             "scripts": []
           },
@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/scss/styles.scss"
             ],
             "scripts": []
           }
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cmsflix"
+    }
+  },
+  "defaultProject": "cmsflix",
+  "cli": {
+    "analytics": "b807b042-c6ca-432b-b6cc-543330941c97"
+  }
 }

@@ -1,0 +1,45 @@
+<!-- <div [formGroup]="form">
+  <label for="first-name">First Name</label>
+  <input formControlName="firstName" id="first-name" />
+
+  <label for="last-name">Last Name</label>
+  <input formControlName="lastName" id="last-name" />
+
+  <label for="email">Email</label>
+  <input formControlName="email" type="email" id="email" />
+  <div *ngIf="emailControl.touched && emailControl.hasError('required')" class="error">
+    email is required
+  </div>
+</div> -->
+
+<ng-container [formGroup]="serieInfoForm">
+  <div class="form">
+    <div class="form-heading">
+      <div class="form-title">Serie Infomation</div>
+    </div>
+    <div class="form-body">
+      <mat-form-field>
+        <mat-label>Global Name</mat-label>
+        <input matInput type="text" formControlName="globalName" (input)="onChange($event.target.value)"
+          placeholder="Global Name" required>
+      </mat-form-field>
+      <div formGroupName="title">
+        <mat-form-field>
+          <mat-label>Title-TH</mat-label>
+          <input matInput type="text" formControlName="th" (input)="onChange($event.target.value)"
+            placeholder="Title-TH" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Title-EN</mat-label>
+          <input matInput type="text" formControlName="en" (input)="onChange($event.target.value)"
+            placeholder="Title-en" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Title-CH</mat-label>
+          <input matInput type="text" formControlName="ch" (input)="onChange($event.target.value)"
+            placeholder="Title-ch" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</ng-container>

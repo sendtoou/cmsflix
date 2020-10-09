@@ -1,0 +1,18 @@
+<p>add-serie works!</p>
+<form [formGroup]="addSerieForm" (ngSubmit)="submit()">
+
+<!-- <h1>Value: {{addSerieForm.get('serieInfo').value}}</h1>
+<h1>Touched: {{addSerieForm.get('serieInfo').touched}}</h1>
+<h1>Dirty: {{addSerieForm.get('serieInfo').dirty}}</h1>
+<h1>Error: {{addSerieForm.get('serieInfo').hasError('required')}}</h1> -->
+
+  <app-serie-info formControlName="serieInfo"></app-serie-info>
+  <app-espisode formControlName="serieEp"></app-espisode>
+  <!-- <app-espisode [epForm]="addSerieForm"></app-espisode> -->
+
+  <button type="submit" >Save</button>
+  <!-- [disabled]="addSerieForm.invalid" -->
+</form>
+<!-- <app-message></app-message> -->
+<p><b>Form data:</b> {{ addSerieForm.value | json }}</p>
+<p><b>Form status:</b> {{ addSerieForm.valid }}</p>
