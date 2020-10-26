@@ -1,0 +1,78 @@
+<div class="form">
+  <div class="form-heading">
+    <div class="form-title">Add Celebrity</div>
+  </div>
+
+  <form [formGroup]="celebForm" (ngSubmit)="submit(celebForm.value)">
+    <div class="form-body">
+      <div formGroupName="name">
+      <mat-form-field>
+        <mat-label>Name-TH</mat-label>
+        <input matInput formControlName="th" placeholder="ชื่อ ภาษาไทย">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name-EN</mat-label>
+        <input matInput formControlName="en" placeholder="ชื่อ ภาษาอังกฤษ">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name-CH</mat-label>
+        <input matInput formControlName="ch" placeholder="ชื่อ ภาษาจีน">
+      </mat-form-field>
+    </div>
+      <!-- <mat-form-field>
+        <mat-label>Description-TH</mat-label>
+        <textarea matInput formControlName="descTh" placeholder="ประวัติ รายละเอียด ภาษาไทย"></textarea>
+      </mat-form-field> -->
+      <!-- <mat-form-field>
+        <mat-label>Name-EN</mat-label>
+        <input matInput placeholder="ชื่อ ภาษาอังกฤษ">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description-EN</mat-label>
+        <textarea matInput placeholder="ประวัติ รายละเอียด ภาษาอังกฤษ"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name-CH</mat-label>
+        <input matInput placeholder="ชื่อ ภาษาจีน">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description-CH</mat-label>
+        <textarea matInput placeholder="ประวัติ รายละเอียด ภาษาจีน"></textarea>
+      </mat-form-field> 
+      <div class="infix">
+        <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <mat-select [(ngModel)]="gender">
+            <mat-option *ngFor="let gender of genderList" [value]="gender.id">
+              {{gender.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>-->
+
+      <!-- <input type="file" (change)="showPreviewImage($event)">
+          <img [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder"> -->
+
+      <!-- Select File -->
+      <input type="file" accept="image/*" (change)="showPreview($event)" />
+
+      <!-- Image Preview -->
+      <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+        <img [src]="imageURL" [alt]="celebForm.value.name">
+      </div>
+
+      <!-- Assign Image Alt -->
+      <!-- <input formControlName="imgName" placeholder="Enter Image Name"> -->
+      <mat-form-field>
+        <mat-label>Image Name</mat-label>
+        <input matInput formControlName="imgName" placeholder="Enter Image Name">
+      </mat-form-field>
+
+    </div>
+
+    <div class="form-footer">
+      <button type="submit">Submit</button>
+    </div>
+
+  </form>
+
+</div>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // INTERCEPTORS
 import { HeaderInterceptor } from './_helpers/header.interceptor';
@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 /* COMPONENTS */ 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './_pages/home/home.component';
@@ -30,6 +31,10 @@ import { PageNotFoundComponent } from './_pages/page-not-found/page-not-found.co
 import { ChangePasswordComponent } from './_pages/change-password/change-password.component';
 import { ForgotPasswordComponent } from './_pages/forgot-password/forgot-password.component';
 import { MessageComponent } from './_pages/message/message.component';
+import { CelebrityComponent } from './_pages/celebrity/celebrity.component';
+import { CelebsComponent } from './_pages/celebs/celebs.component';
+import { CelebCreateComponent } from './_pages/celebs/celeb-create/celeb-create.component';
+import { CelebListComponent } from './_pages/celebs/celeb-list/celeb-list.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,10 @@ import { MessageComponent } from './_pages/message/message.component';
     ChangePasswordComponent,
     ForgotPasswordComponent,
     MessageComponent,
+    CelebrityComponent,
+    CelebsComponent,
+    CelebCreateComponent,
+    CelebListComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,12 +60,14 @@ import { MessageComponent } from './_pages/message/message.component';
     ManagerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
     MatRadioModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },

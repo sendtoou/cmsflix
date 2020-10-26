@@ -11,7 +11,8 @@ export const apiUrl = {
   ensure: baseUrl + '/api/tokencheck',
   /* CONTENT_URL */
   tab: contentUrl + '/api/tab',
-  serie: contentUrl + '/api/serie'
+  serie: contentUrl + '/api/serie',
+  celeb: contentUrl + '/api/celeb',
   // content: contentUrl + '/api/contentbase/tab',
   // banner: contentUrl + '/api/contentbase/banner',
 };
