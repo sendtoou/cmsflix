@@ -9,7 +9,12 @@ import { AccessDeniedComponent } from './_pages/access-denied/access-denied.comp
 import { PageNotFoundComponent } from './_pages/page-not-found/page-not-found.component';
 import { CelebrityComponent } from './_pages/celebrity/celebrity.component';
 import { CelebsComponent } from './_pages/celebs/celebs.component'
-import { CelebListComponent } from './_pages/celebs/celeb-list/celeb-list.component';
+import { CelebTableComponent } from './_pages/celebs/celeb-table/celeb-table.component';
+import { CelebLangComponent } from './_pages/celebs/celeb-lang/celeb-lang.component';
+import { SerieSearchComponent } from './_pages/serie-search/serie-search.component';
+import { SelectSearchComponent } from './_pages/select-search/select-search.component';
+import { CompleteSearchComponent } from './_pages/complete-search/complete-search.component';
+import { ChipSearchComponent } from './_pages/chip-search/chip-search.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +25,12 @@ const routes: Routes = [
   { path: 'pagenotfound', component: PageNotFoundComponent},
   { path: 'celebrity', component: CelebrityComponent},
   { path: 'celebs', component: CelebsComponent},
-  { path: 'celebs-list', component: CelebListComponent},
+  { path: 'celebs-table', component: CelebTableComponent},
+  { path: 'celebs-lang', component: CelebLangComponent},
+  { path: 'serie-search', component: SerieSearchComponent},
+  {path: 'select-search', component: SelectSearchComponent},
+  {path:'complete-search', component: CompleteSearchComponent},
+  {path: 'chip-search', component: ChipSearchComponent},
   {
     path: 'admin',
     loadChildren: () => import('./_layouts/admin/admin.module').then(m => m.AdminModule),

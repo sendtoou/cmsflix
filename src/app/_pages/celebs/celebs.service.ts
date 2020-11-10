@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, Subject, throwError  } from 'rxjs';
-import { catchError, retry, tap } from 'rxjs/operators';
+import { catchError, retry, tap, map } from 'rxjs/operators';
 import { apiUrl } from '../../url.constant';
 import { Celeb } from './celebs.model';
 
@@ -20,6 +20,25 @@ export class CelebService {
   getAll(): Observable<Celeb[]> {
     return this.http.get<Celeb[]>(apiUrl.celeb);
   }
+
+  // getAll(): Observable<Celeb[]> {
+  //   return this.http.get<Celeb[]>(apiUrl.celeb).pipe(
+  //     map(data => data.map(data => new Celeb().deserialize(data)))
+  //   );
+  // }
+  // getUser() {
+  //   return this.http.get('/api/user')
+  //     .map((res: Response) => res.json().response);
+  // } 
+
+  // getAllTrainner(): Observable<Trainner[]> {
+  //   return this._http.get<Trainner[]>(this._url, headerOption).map(res => new Trainner(res));
+  // }
+
+  // getUser(): Observable<User[]> {
+  //   return this.http.get('/api/user')
+  //     .map((res: Response) => res.json().response.map((user: User) => new User().deserialize(user)));
+  // }
 
   getOne(id: string): Observable<Celeb> {
     return this.http.get<Celeb>(apiUrl.celeb + '/' + id);

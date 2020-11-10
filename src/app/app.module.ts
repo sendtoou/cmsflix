@@ -21,6 +21,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatListModule } from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 /* COMPONENTS */ 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './_pages/home/home.component';
@@ -35,6 +41,12 @@ import { CelebrityComponent } from './_pages/celebrity/celebrity.component';
 import { CelebsComponent } from './_pages/celebs/celebs.component';
 import { CelebCreateComponent } from './_pages/celebs/celeb-create/celeb-create.component';
 import { CelebListComponent } from './_pages/celebs/celeb-list/celeb-list.component';
+import { CelebTableComponent } from './_pages/celebs/celeb-table/celeb-table.component';
+import { CelebLangComponent } from './_pages/celebs/celeb-lang/celeb-lang.component';
+import { SerieSearchComponent } from './_pages/serie-search/serie-search.component';
+import { SelectSearchComponent } from './_pages/select-search/select-search.component';
+import { CompleteSearchComponent } from './_pages/complete-search/complete-search.component';
+import { ChipSearchComponent } from './_pages/chip-search/chip-search.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +63,12 @@ import { CelebListComponent } from './_pages/celebs/celeb-list/celeb-list.compon
     CelebsComponent,
     CelebCreateComponent,
     CelebListComponent,
+    CelebTableComponent,
+    CelebLangComponent,
+    SerieSearchComponent,
+    SelectSearchComponent,
+    CompleteSearchComponent,
+    ChipSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +86,12 @@ import { CelebListComponent } from './_pages/celebs/celeb-list/celeb-list.compon
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatListModule,
+    MatChipsModule,
+    MatAutocompleteModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },

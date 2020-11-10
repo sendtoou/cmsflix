@@ -1,0 +1,52 @@
+<mat-form-field>
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="serieControl" multiple>
+
+    <mat-select-trigger>
+      <mat-chip-list>
+        <mat-chip *ngFor="let serie of serieControl.value"
+          [removable]="true" (removed)="onRemoved(serie)">
+          {{ serie.title?.th }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-select-trigger>
+
+    <mat-form-field class="example-full-width">
+      <input matInput
+           [formControl]="filterControl"
+           type="text"
+           name="filter-options"
+           id="filter-options"
+           placeholder="Search">
+    </mat-form-field>
+
+    <mat-option *ngFor="let serie of serieList" [value]="serie">{{serie.title?.th}}</mat-option>
+
+  </mat-select>
+</mat-form-field>
+
+<br/> <!-- only for debug -->
+{{ serieControl.value | json }}
+
+
+
+<!-- <mat-form-field>
+	<mat-label>Toppings</mat-label>
+	<mat-select [formControl]="custonDropdown" multiple (closed)="onPanelClose()">
+
+		  <mat-form-field class="example-full-width">
+			  <input matInput
+             [formControl]="filterControl"
+             type="text"
+             name="filter-options"
+             id="filter-options"
+             placeholder="Search">
+      </mat-form-field>
+
+			<mat-option *ngFor="let option of filteredOptions | async" [value]="option.name"
+				[ngClass]="{'hide': !option.show}">
+				{{option.name}}
+			</mat-option>
+	</mat-select>
+</mat-form-field> -->

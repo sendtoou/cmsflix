@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError  } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry, map } from 'rxjs/operators';
 import { apiUrl } from '../url.constant';
 import { Serie } from '../_models/serie.model';
 import { Message } from '../_models/message.model';
@@ -13,10 +13,25 @@ export class SerieService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    return this.http.get<Serie[]>(apiUrl.serie);
+  // search(term: string) {
+  //   return this.http.get('https://api.spotify.com/v1/search?q=' + term)
+  //   return this.http.get<Serie[]>(apiUrl.serie)
+  //     .pipe(map(res => res));
+  // }
+
+  // getAll(): Observable<Serie[]>{
+  //   return this.http.get<Serie[]>(apiUrl.serie);
+  // }
+
+  
+
+   getAll(): Observable<Serie[]> {
+    return this.http.get<Serie[]>(apiUrl.serie).pipe(map(res => res))
   }
 
+  // getAll(): Observable<Serie[]> {
+  //   return this.http.get<Serie[]>(apiUrl.serie).pipe(map(res => res))//(map((res: any) => res.json()));
+  // }
   //   getCampageUrl(uuid){
   //     return environment.apiUrl + '/campaign/'+uuid+'/activation/';
   //  }

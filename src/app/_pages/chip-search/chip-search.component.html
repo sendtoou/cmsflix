@@ -1,0 +1,27 @@
+<p>chip-search works!</p>
+<mat-form-field>
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="serieControl" #multiSelect multiple>
+
+
+    <mat-select-trigger>
+      <mat-chip-list>
+        <mat-chip *ngFor="let serie of serieControl.value; let matChipIndex = index" [removable]="true" (removed)="onRemoved(multiSelect, matChipIndex)">
+          {{serie}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-select-trigger>
+
+
+
+    <mat-form-field>
+      <input matInput [formControl]="myControl" type="text" placeholder="Search">
+    </mat-form-field>
+    <mat-option *ngFor="let serie of filteredOptions | async" [value]="serie.title?.th">
+      {{serie.title?.th}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br /> 
+{{ serieControl.value | json }} 
