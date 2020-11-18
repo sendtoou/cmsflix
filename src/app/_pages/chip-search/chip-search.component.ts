@@ -37,7 +37,7 @@ export class ChipSearchComponent implements OnInit {
       return this.allSeries.pipe(
         filter(data => !!data),
         map((data) => {
-          return data.filter(option => option.title?.th.toLowerCase().includes(value))
+          return data.filter(option => option.title?.en.toLowerCase().includes(value))
         })
       );
     } else {

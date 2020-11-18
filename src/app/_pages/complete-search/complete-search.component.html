@@ -37,7 +37,7 @@
         <ng-container>
           <mat-chip color="primary" *ngFor="let serie of serieControl?.value; let matChipIndex = index" selected
             [removable]="true" (removed)="onRemoveFruit(multiSelect, matChipIndex)">
-            {{serie}}
+            {{serie._id}} {{serie.title?.en}}
             <mat-icon matChipRemove>cancel</mat-icon>
           </mat-chip>
         </ng-container>
@@ -45,18 +45,18 @@
     </mat-select-trigger>
 
 
-
+    <!-- {{serie.genres[0]?.name?.en}} {{serie.genres[1]?.name?.en}} -->
     <mat-form-field>
       <input matInput [formControl]="myControl" type="text" placeholder="Search">
     </mat-form-field>
-    <mat-option *ngFor="let serie of filteredOptions | async" [value]="serie.title?.th">
-      {{serie.title?.th}}
+    <mat-option *ngFor="let serie of filteredOptions | async" [value]="serie">
+      {{serie.title?.en}}
     </mat-option>
   </mat-select>
 </mat-form-field>
 <br /> 
 {{ serieControl.value | json }}
 
-
+<button (click)="onSubmit()">Submit</button>
 
 

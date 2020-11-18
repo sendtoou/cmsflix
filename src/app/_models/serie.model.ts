@@ -1,4 +1,5 @@
 import {Deserializable} from "./deserializable.model";
+import{Genre} from './genre.model'
 
 export class Serie { //implements Deserializable
   id: string;
@@ -9,7 +10,7 @@ export class Serie { //implements Deserializable
     en: String,
     ch: String
   };
-
+  genres: Genre[];
   // deserialize(input: any): this {
   //   Object.assign(this, input);
   //   return this;

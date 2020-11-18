@@ -5,8 +5,9 @@ import { SerieService } from 'src/app/_services/serie.service';
 import { Serie } from 'src/app/_models/serie.model'
 import { debounceTime, distinctUntilChanged, filter, map, startWith, switchMap } from 'rxjs/operators';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { MatAutocomplete } from '@angular/material/autocomplete';
-import { MatSelect } from '@angular/material/select';
+import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatSelect, MatSelectChange } from '@angular/material/select';
+import { generateKeyPairSync } from 'crypto';
 
 @Component({
   selector: 'app-complete-search',
@@ -21,18 +22,18 @@ export class CompleteSearchComponent implements OnInit {
   myControl = new FormControl();
   filteredOptions: Observable<any[]>;
   allSeries: Observable<any[]>;
-  serieList:  string[] = [];//Serie[] = [];
+  serieList: Serie[] = [];
 
-  @ViewChild("fruitInput") fruitInput: ElementRef<HTMLInputElement>;
-  @ViewChild("auto") matAutocomplete: MatAutocomplete;
+  // @ViewChild("fruitInput") fruitInput: ElementRef<HTMLInputElement>;
+  // @ViewChild("auto") matAutocomplete: MatAutocomplete;
   constructor(private serieService: SerieService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
 
-   
+
     this.allSeries = this.serieService.getAll().pipe(
       filter(data => !!data),
-      map((data) => data.filter(item => item.title?.th !== undefined))
+      map((data) => data.filter(item => item.title?.en !== undefined))
     )
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -54,14 +55,24 @@ export class CompleteSearchComponent implements OnInit {
 
     // const ingredients$ = this.serieService.getAll().pipe(
     //   filter(data => !!data),
-    //   map((data) => data.filter(item => item.title?.th !== undefined)))//check if db has no object(show only has collection)
+    //   map((data) => data.filter(item => item.title?.en !== undefined)))//check if db has no object(show only has collection)
     // const searchValues$ = this.myControl.valueChanges.pipe(
     //   startWith(''), 
     //   map(val => val.toLowerCase()));
     // this.filteredOptions = combineLatest([ingredients$, searchValues$]).pipe(
-    //   map(([list, searchVal]) => list.filter(item => item.title?.th.toLowerCase().includes(searchVal))));
+    //   // map(([list, searchVal]) => list.filter(item => item.title?.en.toLowerCase().includes(searchVal))));
+    //   map(([list, searchVal]) => list.filter(item => item.genres[1]?.name?.en.toLowerCase().includes(searchVal))));
 
   }
+
+
+  //   const data = [{"guid":"j5Dc9Z","courses":[{"id":3,"name":"foo"}]},{"guid":"a5gdfS","courses":[{"id":1,"name":"bar"},{"id":3,"name":"foo"}]},{"guid":"jHab6i","courses":[{"id":7,"name":"foobar"}]}];
+  // const courses = [1, 6, 3];
+
+  // const r = data.filter(d => d.courses.every(c => courses.includes(c.id)));
+  // console.log(r);
+
+
 
   private _filter(value: string) {
     let filterValue = '';
@@ -70,9 +81,21 @@ export class CompleteSearchComponent implements OnInit {
       return this.allSeries.pipe(
         filter(data => !!data),
         map((data) => {
-          return data.filter(option => option.title?.th.toLowerCase().includes(value))
+          return data.filter(option => option.title?.en.toLowerCase().includes(value)), data.filter(g => g.genres.some((item: any) => item.name?.en.toLowerCase().includes(value)))
         })
-      );
+
+        //map((data) => {
+        // return data.filter(g => g.genres.some(item => item.name?.en.toLowerCase().includes(value)))
+        // })
+
+
+
+
+
+
+      )
+
+
     } else {
       return this.allSeries
     }
@@ -86,26 +109,10 @@ export class CompleteSearchComponent implements OnInit {
     multiSelect.writeValue(selectedFruits);
   }
 
-  // onRemoved(serie: string) {
-  //   const series = this.serieControl.value as string[];
-  //   this.removeFirst(series, serie);
-  //   this.serieControl.setValue(series); // To trigger change detection
-  // }
+  onSubmit() {
+    console.log(this.serieControl.value);
+  }
 
-  // private removeFirst<T>(array: T[], toRemove: T): void {
-  //   const index = array.indexOf(toRemove);
-  //   if (index !== -1) {
-  //     array.splice(index, 1);
-  //   }
-  // }
-  // onRemoved(serie: string): void {
-  //   const index = this.allSeries.indexOf(serie);
-
-  //   if (index >= 0) {
-  //     this.allSeries.splice(index, 1);
-  //   }
-  // }
 
 }
-
 

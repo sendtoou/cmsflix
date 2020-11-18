@@ -18,8 +18,8 @@
     <mat-form-field>
       <input matInput [formControl]="myControl" type="text" placeholder="Search">
     </mat-form-field>
-    <mat-option *ngFor="let serie of filteredOptions | async" [value]="serie.title?.th">
-      {{serie.title?.th}}
+    <mat-option *ngFor="let serie of filteredOptions | async" [value]="serie.title?.en">
+      {{serie.title?.en}}
     </mat-option>
   </mat-select>
 </mat-form-field>
