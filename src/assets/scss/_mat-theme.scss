@@ -18,7 +18,7 @@ $dark-focused: rgba(black, 0.12);
 
 $dark-primary: mat-palette($mat-grey);
 $dark-accent: mat-palette($mat-green);
-$dark-warn: mat-palette($mat-deep-orange, 700);
+$dark-warn: mat-palette($mat-red, 700);
 
 /* LIGHT */
 $light-primary-text: white;
@@ -29,7 +29,7 @@ $light-focused: rgba(white, 0.12);
 
 $light-primary: mat-palette($mat-blue-grey, 700);
 $light-accent: mat-palette($mat-indigo);
-$light-warn: mat-palette($mat-yellow, 700);
+$light-warn: mat-palette($mat-deep-orange, 700);
 
 $mat-red: (
   50: #ffebee,

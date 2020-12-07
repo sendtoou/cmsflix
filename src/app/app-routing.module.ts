@@ -15,6 +15,12 @@ import { SerieSearchComponent } from './_pages/serie-search/serie-search.compone
 import { SelectSearchComponent } from './_pages/select-search/select-search.component';
 import { CompleteSearchComponent } from './_pages/complete-search/complete-search.component';
 import { ChipSearchComponent } from './_pages/chip-search/chip-search.component';
+import { AddSerieComponent } from './_layouts/admin/series/add-serie/add-serie.component';
+import { AddGenreComponent } from './_pages/add-genre/add-genre.component';
+import { GenreComponent } from './_pages/genre/genre.component';
+import { GenreCreateComponent } from './_pages/genre/genre-create/genre-create.component';
+import { GenreListComponent } from './_pages/genre/genre-list/genre-list.component';
+import { PersonCreateComponent } from './_pages/person/person-create/person-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,9 +34,15 @@ const routes: Routes = [
   { path: 'celebs-table', component: CelebTableComponent},
   { path: 'celebs-lang', component: CelebLangComponent},
   { path: 'serie-search', component: SerieSearchComponent},
-  {path: 'select-search', component: SelectSearchComponent},
-  {path:'complete-search', component: CompleteSearchComponent},
-  {path: 'chip-search', component: ChipSearchComponent},
+  { path: 'select-search', component: SelectSearchComponent},
+  { path: 'complete-search', component: CompleteSearchComponent},
+  { path: 'chip-search', component: ChipSearchComponent},
+  { path: 'add-serie', component: AddSerieComponent},
+  { path: 'add-genre', component: AddGenreComponent},
+  { path: 'genre', component: GenreComponent},
+  { path: 'genre-create', component: GenreCreateComponent},
+  { path: 'genre-list', component: GenreListComponent},
+  { path: 'person-create', component: PersonCreateComponent},
   {
     path: 'admin',
     loadChildren: () => import('./_layouts/admin/admin.module').then(m => m.AdminModule),

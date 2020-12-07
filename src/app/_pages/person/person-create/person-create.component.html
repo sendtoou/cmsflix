@@ -1,0 +1,32 @@
+<p>person-create works!</p>
+<div class="form">
+  <div class="form-heading">
+    <div class="form-title">Create Genre</div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submit(form.value)">
+    <div class="form-body">
+      <div formGroupName="name">
+        <mat-form-field>
+          <mat-label>Name-TH</mat-label>
+          <input matInput formControlName="th" placeholder="ชื่อภาษาไทย" required>
+          <mat-error>Name-TH is required</mat-error>
+          <!-- <mat-error *ngIf="genreForm.controls.th?.errors && genreForm.controls.th?.touched"></mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Name-EN</mat-label>
+          <input matInput formControlName="en" placeholder="ชื่อภาษาอังกฤษ">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Name-CH</mat-label>
+          <input matInput formControlName="ch" placeholder="ชื่อภาษาจีน">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button mat-raised-button color='primary' type="submit">Submit</button>
+      <!-- <button mat-raised-button color='primary' type="submit" [disabled]="genreForm.invalid" >Submit</button> -->
+      <!-- <button mat-raised-button [disabled]="genreForm.invalid" (click)="submit()">Submit</button> -->
+
+    </div>
+  </form>
+</div>

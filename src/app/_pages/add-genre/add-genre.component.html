@@ -1,0 +1,32 @@
+<p>add-genre works!</p>
+<!-- <div [formGroup]="epForm">
+  <div class="form">
+    <div class="form-heading">
+      <div class="form-title">Episode Details
+        <button type="button" (click)="addEpisode()">Add Episode</button>
+      </div>
+    </div>
+    <div class="form-body">
+      <div formArrayName="episodes">      
+        <div *ngFor="let episode of episodes().controls; let i=index">
+         
+          <div [formGroupName]="i">
+            <input formControlName="chapter" placeholder="Chapter" (input)="onChange($event.target.value)">
+            <input formControlName="epTitle" placeholder="Episode Title" (input)="onChange($event.target.value)">
+          </div>
+          <button (click)="removeEpisode(i)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<ul>
+  <li *ngFor="let genre of genres">
+    <p>{{genre.name.th}} {{genre.name.en}} {{genre.name.ch}}</p>
+
+    <!-- <ol>
+      <li *ngFor="let title of serie.titleName">{{title.name}}</li>
+    </ol> -->
+  </li>
+</ul>

@@ -75,6 +75,7 @@ export class CompleteSearchComponent implements OnInit {
 
 
   private _filter(value: string) {
+
     let filterValue = '';
     if (value) {
       filterValue = value.toLowerCase()
@@ -87,10 +88,6 @@ export class CompleteSearchComponent implements OnInit {
         //map((data) => {
         // return data.filter(g => g.genres.some(item => item.name?.en.toLowerCase().includes(value)))
         // })
-
-
-
-
 
 
       )

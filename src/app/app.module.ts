@@ -13,6 +13,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 /* LAYOUT MODULE */ 
 import { AdminModule } from './_layouts/admin/admin.module';
 import { ManagerModule } from './_layouts/manager/manager.module';
+/* ALERT MODULE */ 
+import { AlertModule } from 'src/app/_pages/alert/alert.module' 
 /* Material UI */
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -47,6 +49,15 @@ import { SerieSearchComponent } from './_pages/serie-search/serie-search.compone
 import { SelectSearchComponent } from './_pages/select-search/select-search.component';
 import { CompleteSearchComponent } from './_pages/complete-search/complete-search.component';
 import { ChipSearchComponent } from './_pages/chip-search/chip-search.component';
+import { AddSerieComponent } from './_pages/add-serie/add-serie.component';
+import { AddPersonComponent } from './_pages/add-person/add-person.component';
+import { AddGenreComponent } from './_pages/add-genre/add-genre.component';
+import { GenreComponent } from './_pages/genre/genre.component';
+import { GenreCreateComponent } from './_pages/genre/genre-create/genre-create.component';
+import { GenreListComponent } from './_pages/genre/genre-list/genre-list.component';
+// import { AlertComponent } from './_pages/alert/alert.component';
+import { PersonComponent } from './_pages/person/person.component';
+import { PersonCreateComponent } from './_pages/person/person-create/person-create.component';
 
 @NgModule({
   declarations: [
@@ -69,11 +80,21 @@ import { ChipSearchComponent } from './_pages/chip-search/chip-search.component'
     SelectSearchComponent,
     CompleteSearchComponent,
     ChipSearchComponent,
+    AddSerieComponent,
+    AddPersonComponent,
+    AddGenreComponent,
+    GenreComponent,
+    GenreCreateComponent,
+    GenreListComponent,
+    // AlertComponent,
+    PersonComponent,
+    PersonCreateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AlertModule,
     AdminModule,
     ManagerModule,
     BrowserAnimationsModule,
